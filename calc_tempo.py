@@ -37,4 +37,4 @@ def find_largest_bucket(bucket):
             highest_key = key
     return highest_key
 
-get_mean_tempo("train2.txt")
+get_mean_tempo("train1.txt")

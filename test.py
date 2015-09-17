@@ -6,7 +6,8 @@ def show_amplitude(file_name):
     input_data = read(file_name)
     audio = input_data[1]
     # plot the first 1024 samples
-    plt.plot(audio[0:1024])
+    plt.plot(audio)
+    plot_sampledBeats(input_data[0], file_name, max(audio))
     # label the axes
     plt.ylabel("Amplitude")
     plt.xlabel("Time (samples)")
@@ -45,6 +46,18 @@ def show_magnitued(file_name):
     plt.title(file_name + " Spectrum")
     plt.show()
 
+def plot_sampledBeats(sample_rate, file_name, maxValue):
+    lines = [line.rstrip('\n') for line in open(file_name.replace('.wav', '.txt'))]
+    for line in lines:
+        domain = []
+        points = line.split('\t')
+        range = [maxValue] * len(points)
+        for point in points:
+            domain += [float(point) * sample_rate]
+        plt.plot(domain,range, 'ko')
+
+def seconds_to_sample(seconds, sampleRate):
+    return seconds * sampleRate
 
 
 show_amplitude("train1.wav")
