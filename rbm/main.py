@@ -251,8 +251,19 @@ train_set_x, train_set_y = datasets[0]
 test_set_x, test_set_y = datasets[2]
 rng = numpy.random.RandomState(123)
 theano_rng = RandomStreams(rng.randint(2 ** 30))
-# rbm = RBM(input=x, n_visible=28 * 28,
-#               n_hidden=n_hidden, numpy_rng=rng, theano_rng=theano_rng)
-# train_rbm(rbm, datasets[0], learning_rate=0.1, training_epochs=15,
-#               batch_size=20, output_folder='rbm_plots', n_hidden=500, CD_steps=5)
-sample_rbm(rbm=None, test_set_x=test_set_x, n_chains=1, n_samples=500, n_step=1,percentage_noise=5, n_repeat=10)
+rbm = RBM(input=x, n_visible=28 * 28,
+              n_hidden=n_hidden, numpy_rng=rng, theano_rng=theano_rng)
+# train_rbm(rbm, datasets[0], learning_rate=0.1, training_epochs=5,
+#               batch_size=20, output_folder='rbm_plots', n_hidden=500, CD_steps=2)
+# sample_rbm(rbm=None, test_set_x=test_set_x, x=1, n_samples=500, n_step=1,percentage_noise=5, n_repeat=10)
+
+# print(test_set_x.get_value(borrow=True)[0])
+
+# single = theano.shared(
+#         numpy.asarray(
+#             test_set_x.get_value(borrow=True),
+#             dtype=theano.config.floatX
+#         )
+#     )
+l = rbm.sample_h_given_v(test_set_x)
+print(l[-1].eval())

@@ -200,7 +200,7 @@ def load_data(dataset):
             'http://www.iro.umontreal.ca/~lisa/deep/data/mnist/mnist.pkl.gz'
         )
         print ('Downloading data from %s' % origin)
-        urllib.urlretrieve(origin, dataset)
+        urllib.request.urlretrieve(origin, dataset)
 
     print( '... loading data')
 
