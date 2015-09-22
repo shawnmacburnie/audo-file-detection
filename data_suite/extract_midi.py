@@ -24,9 +24,3 @@ def extract(file_name):
     target.close()
     print('Data generated and saved to ' + file_name.replace('.mid','') + '_extracted.txt')
     print("Process took: " + str(round(time.time() - startTime, 3)))
-extract('test-sageev-bach-1.mid')
-
-
-
-
-

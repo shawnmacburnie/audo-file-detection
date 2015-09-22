@@ -25,6 +25,8 @@ def makeVector(size,onIndex):
     x = [0] * size
     x[onIndex] = 1
     return x
+
+
 bpm = 60
 spb = bpm / 60
 spba = spb * 4
@@ -117,27 +119,3 @@ with open(file_name) as f:
             else:
                 target.write(str(y))
         target.write('\n')
-
-
-
-
-    print(t_data)
-    print(b_data)
-#     if hasattr(message, 'velocity') and message.type == 'note_on':
-#         note = message.note
-#         velocity = message.velocity / 127
-#         pitch_class = note % 12
-#         octave = (note // 12) -1
-#         mutation = 0
-#         if note <= base_note_split:
-#             if b_lastNotePlayed != -1:
-#                 mutation = note - b_lastNotePlayed
-#             b_lastNotePlayed = note
-#             b_notes.append({'note': note, 'velocity': velocity,'pitch_class': pitch_class, 'octave': octave, 'mutation': mutation})
-#         else:
-#             if t_lastNotePlayed != -1:
-#                 mutation = note - t_lastNotePlayed
-#             t_lastNotePlayed = note
-#             t_notes.append({'note': note, 'velocity': velocity, 'pitch_class': pitch_class, 'octave': octave, 'mutation': mutation})
-# print(t_notes)
-# print(b_notes)
