@@ -225,6 +225,7 @@ def load_data(dataset):
         variable) would lead to a large decrease in performance.
         """
         data_x, data_y = data_xy
+        print(data_x)
         shared_x = theano.shared(numpy.asarray(data_x,
                                                dtype=theano.config.floatX),
                                  borrow=borrow)

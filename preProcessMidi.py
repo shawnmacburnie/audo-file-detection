@@ -101,7 +101,7 @@ with open(file_name) as f:
         if i in b_data:
             b_current = b_data[i][0]
         else:
-            b_current = [0] * 32
+            b_current = [0] * 35
         first = True
         for y in b_current:
             if not first:
