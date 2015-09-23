@@ -27,12 +27,14 @@ def train_two_layer_rbm(rbm, hidden_rbm, train_set_x, x, learning_rate=0.1, trai
         },
         name=name
     )
+    final_cost = 0
     for epoch in xrange(training_epochs):
-        print('Training on ' + str(epoch))
+        print('Training epoch ' + str(epoch))
         mean_cost = []
         for batch_index in xrange(n_train_batches):
             mean_cost += [train_rbm(batch_index)]
-        print('Training epoch %d, cost is ' % epoch, numpy.mean(mean_cost))
+        final_cost = numpy.mean(mean_cost)
+    print('Final cost is ', numpy.mean(mean_cost))
 
     if hidden_rbm != None:
         print("starting next rbm")
@@ -62,9 +64,11 @@ def train_layer_2(rbm, hidden_rbm, train_set_x, x, learning_rate=0.1, training_e
         },
         name=name
     )
+    final_cost = 0
     for epoch in xrange(training_epochs):
-        print('Training on ' + str(epoch))
+        print('Training epoch ' + str(epoch))
         mean_cost = []
         for batch_index in xrange(n_train_batches):
             mean_cost += [train_rbm(batch_index)]
-        print('Training epoch %d, cost is ' % epoch, numpy.mean(mean_cost))
+        final_cost = numpy.mean(mean_cost)
+    print('Final cost is ', numpy.mean(mean_cost))
